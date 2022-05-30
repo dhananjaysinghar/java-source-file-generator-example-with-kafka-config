@@ -1,0 +1,17 @@
+KAFKA_BOOTSTRAP_SERVER: 192.168.0.104:9092
+
+server:
+  port: 8089
+app:
+  kafka:
+    enabled: true
+    host: ${KAFKA_BOOTSTRAP_SERVER}
+    topic: test_topic
+    max-poll-record: 1000
+    consumer-group-id: user-consumer-test
+
+logging:
+  level:
+    org.springframework.web: ${LOG_LEVEL:INFO}
+    org.springframework.security: ${LOG_LEVEL:INFO}
+    org.springframework.security.oauth2: ${LOG_LEVEL:INFO}
